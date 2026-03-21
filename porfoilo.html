@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Krai Theara | Portfolio</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary: #0f172a;
+        --accent: #38bdf8;
+        --bg: #f1f5f9;
+        --card: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: var(--bg);
+        color: #1e293b;
+        scroll-behavior: smooth;
+      }
+
+      /* Header */
+      header {
+        background: var(--primary);
+        color: white;
+        text-align: center;
+        padding: 80px 20px;
+        animation: fadeIn 1.5s ease;
+      }
+
+      /* Profile Logo */
+      .profile-logo {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 4px solid var(--accent);
+        margin-bottom: 15px;
+        object-fit: cover;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      header p {
+        margin-top: 10px;
+        opacity: 0.8;
+      }
+
+      /* Layout */
+      .container {
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 20px;
+      }
+
+      .section {
+        margin-bottom: 60px;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: 0.6s ease;
+      }
+
+      .section.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .section h2 {
+        margin-bottom: 15px;
+        border-left: 5px solid var(--accent);
+        padding-left: 10px;
+      }
+
+      .card {
+        background: var(--card);
+        padding: 20px;
+        border-radius: 12px;
+        margin-top: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      /* Projects */
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .project {
+        background: var(--card);
+        padding: 20px;
+        border-radius: 12px;
+        transition: 0.3s;
+      }
+
+      .project:hover {
+        transform: scale(1.05);
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        background: var(--primary);
+        color: white;
+        padding: 20px;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <!-- Replace image URL with your real logo -->
+      <img src="kraitheara.jpg" alt="Krai Theara Logo" class="profile-logo" />
+
+      <h1>Krai Theara</h1>
+      <p>Student Web Developer | Building Technology to Help My Community</p>
+    </header>
+
+    <div class="container">
+      <div class="section">
+        <h2>About Me</h2>
+        <div class="card">
+          <p>
+            I am a passionate web development student focused on building
+            real-world solutions. My mission is to use technology to support and
+            improve my community.
+          </p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Skills</h2>
+        <div class="card">
+          <p>HTML • CSS • JavaScript • Python • Java • Spring Boot</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Projects</h2>
+        <div class="projects">
+          <div class="project">
+            <h3>School Management System</h3>
+            <p>Java + Spring Boot system to manage students and teachers.</p>
+          </div>
+
+          <div class="project">
+            <h3>Hotel Management App</h3>
+            <p>Python-based application for booking and records.</p>
+          </div>
+
+          <div class="project">
+            <h3>Community Platform</h3>
+            <p>A platform to connect and support local people.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Contact</h2>
+        <div class="card">
+          <p>Email: your@email.com</p>
+          <p>GitHub: <a href="#">github.com/yourprofile</a></p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2026 Krai Theara | Built with purpose</p>
+    </footer>
+
+    <script>
+      // Scroll Animation
+      const sections = document.querySelectorAll(".section");
+
+      window.addEventListener("scroll", () => {
+        sections.forEach((section) => {
+          const top = section.getBoundingClientRect().top;
+          if (top < window.innerHeight - 100) {
+            section.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
