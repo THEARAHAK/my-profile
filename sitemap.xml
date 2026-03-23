@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  
-  <!-- Homepage -->
+
+  <!-- Main Homepage (Primary SEO Target) -->
   <url>
     <loc>https://kraitheara.vercel.app/</loc>
     <lastmod>2026-03-23</lastmod>
@@ -10,41 +10,38 @@
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://kraitheara.vercel.app/preview.png</image:loc>
-      <image:title>Krai Theara - Student Web Developer Portfolio</image:title>
-      <image:caption>Portfolio of Krai Theara, student web developer in Cambodia</image:caption>
+      <image:title>Krai Theara - Web Developer Portfolio</image:title>
+      <image:caption>Portfolio of Krai Theara, web developer in Cambodia</image:caption>
     </image:image>
   </url>
 
-  <!-- About Section -->
+  <!-- Sections (Kept but lower priority) -->
   <url>
     <loc>https://kraitheara.vercel.app/#about</loc>
     <lastmod>2026-03-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.3</priority>
   </url>
 
-  <!-- Skills Section -->
   <url>
     <loc>https://kraitheara.vercel.app/#skills</loc>
     <lastmod>2026-03-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.3</priority>
   </url>
 
-  <!-- Projects Section -->
   <url>
     <loc>https://kraitheara.vercel.app/#projects</loc>
     <lastmod>2026-03-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.4</priority>
   </url>
 
-  <!-- Contact Section -->
   <url>
     <loc>https://kraitheara.vercel.app/#contact</loc>
     <lastmod>2026-03-23</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.2</priority>
   </url>
 
 </urlset>
