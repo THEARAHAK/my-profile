@@ -1,9 +1,23 @@
-# Allow all search engines to index everything
+# robots.txt for kraitheara.vercel.app
+# Optimized for search engine crawling
+
 User-agent: *
 Allow: /
 
 # Sitemap location
 Sitemap: https://kraitheara.vercel.app/sitemap.xml
 
-# Crawl delay (optional, be nice to search engines)
+# Crawl-delay (optional, helps prevent server overload)
 Crawl-delay: 1
+
+# Block common non-essential paths
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /admin/
+
+# Allow all images
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.webp$
