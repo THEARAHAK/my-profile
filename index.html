@@ -9,7 +9,7 @@
     <title>Krai Theara | Student Web Developer in Cambodia | Portfolio</title>
     <meta name="title" content="Krai Theara | Student Web Developer in Cambodia | Portfolio">
     <meta name="description" content="Krai Theara is a passionate web development student in Phnom Penh, Cambodia, building real-world projects with Java, Spring Boot, Python, and JavaScript to help the local community.">
-    <meta name="keywords" content="Krai Theara, student web developer Cambodia, Cambodia student developer, Phnom Penh student programmer, Java student Cambodia, Spring Boot projects, Python student developer, web development student Cambodia, computer science student Cambodia, coding student Phnom Penh, beginner developer Cambodia, learning web development Cambodia, student projects Cambodia, school management system, hotel management app, community platform Cambodia, Cambodia tech student, programming student Cambodia, CS student Cambodia, IT student Cambodia, junior developer Cambodia, aspiring developer Cambodia, student portfolio Cambodia, web dev learner, Cambodia young developer, tech education Cambodia, coding journey Cambodia, student programmer Phnom Penh, entry level developer Cambodia, Cambodia developer community, tech beginner Cambodia, self-taught developer Cambodia, Cambodia student projects, Java Spring Boot student, Python beginner Cambodia, JavaScript learner Cambodia, student software developer, Cambodia coding student, Phnom Penh tech student, young programmer Cambodia, student coder, Cambodia IT education, web development journey, student tech enthusiast Cambodia">
+    <meta name="keywords" content="Krai Theara, student web developer Cambodia, Cambodia developer, Java Spring Boot, Python projects, web development student, Phnom Penh developer, coding student, school management system, hotel management app, community platform, Cambodia tech, programming student, CS student, IT student, junior developer, student portfolio, web dev learner, Cambodia young developer, tech education, coding journey, student programmer, entry level developer, self-taught developer, JavaScript learner, student software developer, Cambodia coding student, Phnom Penh tech student, young programmer, student coder, web development journey, tech enthusiast Cambodia, frontend developer, backend developer, full stack student, software engineering student, computer science Cambodia, IT education Cambodia, tech skills Cambodia, programming portfolio, coding projects Cambodia, student developer projects, web applications Cambodia, mobile responsive design, API development, database management, Spring Boot developer, Python programmer, JavaScript developer, HTML CSS expert, web design student, UI UX student, software development student, Cambodia IT sector, tech industry Cambodia, digital skills Cambodia, coding bootcamp Cambodia, self-learning developer, project-based learning, real-world applications, community-driven projects, social impact technology, education technology Cambodia, hospitality software Cambodia, school automation system, booking management system, student management platform, teacher administration, hotel reservation system, community connection platform, local technology solutions, Cambodia digital transformation, youth developer Cambodia, emerging developer, beginner programmer, code learning journey, tech career Cambodia, software solutions Cambodia, web technology student, modern web development, responsive web design, server-side development, client-side development, database design, system architecture, software engineering principles, agile development, version control, Git GitHub, collaborative development, open source contributor, portfolio website, personal branding, professional development, skill showcase, project portfolio, technical expertise, problem-solving skills, analytical thinking, creative coding, innovation technology, Cambodia startup ecosystem, tech entrepreneurship, digital innovation Cambodia, technology for good, social good technology, community empowerment tech, accessible technology, inclusive design, Cambodia digital economy, tech talent Cambodia, software craftsmanship, clean code, best practices, continuous learning, growth mindset, passion for technology, dedication to community, purposeful technology, meaningful projects, impact-driven development">
     <meta name="author" content="Krai Theara">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     
@@ -52,7 +52,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
     <!-- Theme Color -->
-    <meta name="theme-color" content="#0f172a">
+    <meta name="theme-color" content="#1e1b4b">
     
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -80,7 +80,13 @@
         "HTML",
         "CSS",
         "Software Development",
-        "Backend Development"
+        "Backend Development",
+        "Frontend Development",
+        "Full Stack Development",
+        "Database Management",
+        "API Development",
+        "Responsive Design",
+        "System Architecture"
       ],
       "hasOccupation": {
         "@type": "Occupation",
@@ -89,7 +95,7 @@
           "@type": "City",
           "name": "Phnom Penh"
         },
-        "skills": "Java, Spring Boot, Python, JavaScript, HTML, CSS"
+        "skills": "Java, Spring Boot, Python, JavaScript, HTML, CSS, Web Development, Software Engineering"
       },
       "knowsLanguage": [
         {
@@ -126,7 +132,7 @@
       },
       "inLanguage": "en",
       "copyrightYear": "2026",
-      "keywords": "student web developer, Cambodia developer, Java Spring Boot, Python projects, web development student"
+      "keywords": "student web developer, Cambodia developer, Java Spring Boot, Python projects, web development student, Phnom Penh programmer, coding portfolio, tech student Cambodia"
     }
     </script>
 
@@ -176,17 +182,23 @@
     }
     </script>
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
       :root {
-        --primary: #0f172a;
-        --accent: #38bdf8;
-        --bg: #f1f5f9;
-        --card: #ffffff;
+        --primary: #1e1b4b;
+        --primary-light: #312e81;
+        --accent: #f59e0b;
+        --accent-light: #fbbf24;
+        --bg: #0f0e1a;
+        --bg-light: #1a1825;
+        --card: rgba(255, 255, 255, 0.05);
+        --text: #e2e8f0;
+        --text-muted: #94a3b8;
+        --border: rgba(255, 255, 255, 0.1);
       }
 
       * {
@@ -196,211 +208,1083 @@
       }
 
       body {
-        font-family: "Poppins", sans-serif;
+        font-family: "DM Sans", sans-serif;
         background: var(--bg);
-        color: #1e293b;
-        scroll-behavior: smooth;
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
       }
 
-      /* Header */
-      header {
-        background: var(--primary);
-        color: white;
-        text-align: center;
-        padding: 80px 20px;
-        animation: fadeIn 1.5s ease;
+      /* Animated Background */
+      .bg-gradient {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: 
+          radial-gradient(ellipse at 20% 30%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+          radial-gradient(ellipse at 80% 70%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
+          var(--bg);
+        animation: gradientShift 20s ease infinite;
       }
 
-      /* Profile Logo */
-      .profile-logo {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        border: 4px solid var(--accent);
-        margin-bottom: 15px;
-        object-fit: cover;
-        animation: float 3s ease-in-out infinite;
+      @keyframes gradientShift {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.8; }
       }
 
-      header h1 {
-        font-size: 2.5rem;
+      /* Navigation */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(15, 14, 26, 0.8);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border);
+        padding: 1rem 2rem;
+        z-index: 1000;
+        animation: slideDown 0.6s ease;
       }
 
-      header p {
-        margin-top: 10px;
-        opacity: 0.8;
-      }
-
-      /* Layout */
-      .container {
-        max-width: 1100px;
-        margin: 40px auto;
-        padding: 20px;
-      }
-
-      .section {
-        margin-bottom: 60px;
-        opacity: 0;
-        transform: translateY(40px);
-        transition: 0.6s ease;
-      }
-
-      .section.active {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .section h2 {
-        margin-bottom: 15px;
-        border-left: 5px solid var(--accent);
-        padding-left: 10px;
-      }
-
-      .card {
-        background: var(--card);
-        padding: 20px;
-        border-radius: 12px;
-        margin-top: 15px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        transition: 0.3s;
-      }
-
-      .card:hover {
-        transform: translateY(-5px);
-      }
-
-      /* Projects */
-      .projects {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-      }
-
-      .project {
-        background: var(--card);
-        padding: 20px;
-        border-radius: 12px;
-        transition: 0.3s;
-      }
-
-      .project:hover {
-        transform: scale(1.05);
-      }
-
-      /* Footer */
-      footer {
-        text-align: center;
-        background: var(--primary);
-        color: white;
-        padding: 20px;
-      }
-
-      a {
-        color: var(--accent);
-        text-decoration: none;
-      }
-
-      /* Animations */
-      @keyframes fadeIn {
+      @keyframes slideDown {
         from {
+          transform: translateY(-100%);
           opacity: 0;
         }
         to {
+          transform: translateY(0);
           opacity: 1;
         }
       }
 
+      .nav-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-family: "Space Mono", monospace;
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: var(--accent);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .logo::before {
+        content: "{ }";
+        color: var(--accent-light);
+      }
+
+      /* Search Bar */
+      .search-container {
+        flex: 1;
+        max-width: 500px;
+        margin: 0 2rem;
+        position: relative;
+      }
+
+      .search-box {
+        width: 100%;
+        padding: 0.75rem 1rem 0.75rem 3rem;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 50px;
+        color: var(--text);
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        outline: none;
+      }
+
+      .search-box:focus {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+      }
+
+      .search-icon {
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-muted);
+        pointer-events: none;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--accent);
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* Header */
+      header {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 120px 20px 60px;
+        position: relative;
+      }
+
+      .header-content {
+        max-width: 900px;
+        animation: fadeInUp 1s ease;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .profile-logo {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        border: 4px solid var(--accent);
+        margin-bottom: 2rem;
+        object-fit: cover;
+        animation: float 4s ease-in-out infinite;
+        box-shadow: 0 20px 60px rgba(245, 158, 11, 0.3);
+      }
+
       @keyframes float {
-        0% {
+        0%, 100% {
           transform: translateY(0px);
         }
         50% {
-          transform: translateY(-10px);
+          transform: translateY(-15px);
         }
-        100% {
-          transform: translateY(0px);
-        }
+      }
+
+      .header-title {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-weight: 700;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .header-subtitle {
+        font-size: 1.25rem;
+        color: var(--text-muted);
+        margin-bottom: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        border: 2px solid transparent;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: var(--bg);
+      }
+
+      .btn-primary:hover {
+        background: var(--accent-light);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        border-color: var(--border);
+        color: var(--text);
+      }
+
+      .btn-secondary:hover {
+        background: var(--card);
+        border-color: var(--accent);
+        transform: translateY(-2px);
+      }
+
+      /* Container */
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 80px 20px;
+      }
+
+      /* Sections */
+      .section {
+        margin-bottom: 120px;
+        opacity: 0;
+        transform: translateY(60px);
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 3rem;
+      }
+
+      .section-number {
+        font-family: "Space Mono", monospace;
+        font-size: 1rem;
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      .section-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 700;
+        position: relative;
+      }
+
+      .section-line {
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+        margin-left: 2rem;
+      }
+
+      /* Cards */
+      .card {
+        background: var(--card);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 2rem;
+        transition: all 0.3s ease;
+      }
+
+      .card:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: var(--accent);
+        transform: translateY(-5px);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Skills Grid */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .skill-item {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        cursor: default;
+      }
+
+      .skill-item:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: var(--accent);
+        transform: translateY(-5px) scale(1.05);
+      }
+
+      .skill-icon {
+        font-size: 2.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .skill-name {
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 0.25rem;
+      }
+
+      .skill-level {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+
+      /* Projects Grid */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+      }
+
+      .project-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 2rem;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, var(--accent), var(--primary));
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+      }
+
+      .project-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .project-card:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: var(--accent);
+        transform: translateY(-10px);
+        box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+      }
+
+      .project-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        margin-bottom: 1rem;
+      }
+
+      .project-icon {
+        font-size: 2.5rem;
+      }
+
+      .project-links {
+        display: flex;
+        gap: 0.75rem;
+      }
+
+      .project-link {
+        color: var(--text-muted);
+        transition: color 0.3s ease;
+        text-decoration: none;
+        font-size: 1.25rem;
+      }
+
+      .project-link:hover {
+        color: var(--accent);
+      }
+
+      .project-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        color: var(--text);
+      }
+
+      .project-description {
+        color: var(--text-muted);
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .tag {
+        font-family: "Space Mono", monospace;
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+        background: rgba(245, 158, 11, 0.1);
+        color: var(--accent);
+        border-radius: 20px;
+        border: 1px solid rgba(245, 158, 11, 0.2);
+      }
+
+      /* Contact Section */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .contact-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        color: var(--text);
+      }
+
+      .contact-card:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: var(--accent);
+        transform: translateY(-5px);
+      }
+
+      .contact-icon {
+        font-size: 2rem;
+        color: var(--accent);
+      }
+
+      .contact-info h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .contact-info p {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--bg-light);
+        border-top: 1px solid var(--border);
+        padding: 3rem 2rem;
+        text-align: center;
+      }
+
+      .footer-content {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .footer-text {
+        color: var(--text-muted);
+        margin-bottom: 1rem;
+      }
+
+      .footer-heart {
+        color: var(--accent);
+        animation: heartbeat 1.5s ease infinite;
+      }
+
+      @keyframes heartbeat {
+        0%, 100% { transform: scale(1); }
+        10%, 30% { transform: scale(1.1); }
+        20%, 40% { transform: scale(1); }
+      }
+
+      /* Search Results */
+      .search-results {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        width: 100%;
+        background: rgba(26, 24, 37, 0.95);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        max-height: 400px;
+        overflow-y: auto;
+        display: none;
+        z-index: 1000;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      }
+
+      .search-results.active {
+        display: block;
+      }
+
+      .search-result-item {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid var(--border);
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .search-result-item:last-child {
+        border-bottom: none;
+      }
+
+      .search-result-item:hover {
+        background: var(--card);
+      }
+
+      .search-result-title {
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 0.25rem;
+      }
+
+      .search-result-type {
+        font-size: 0.85rem;
+        color: var(--accent);
+        margin-bottom: 0.25rem;
+      }
+
+      .search-result-description {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .no-results {
+        padding: 2rem;
+        text-align: center;
+        color: var(--text-muted);
+      }
+
+      /* Scroll to top */
+      .scroll-top {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 50px;
+        height: 50px;
+        background: var(--accent);
+        color: var(--bg);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+        z-index: 999;
+        font-size: 1.5rem;
+      }
+
+      .scroll-top.visible {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .scroll-top:hover {
+        background: var(--accent-light);
+        transform: translateY(-5px);
       }
 
       /* Responsive */
       @media (max-width: 768px) {
-        header h1 {
-          font-size: 2rem;
+        nav {
+          padding: 1rem;
         }
+
+        .search-container {
+          display: none;
+        }
+
+        .nav-links {
+          gap: 1rem;
+          font-size: 0.9rem;
+        }
+
+        .header-content {
+          padding-top: 2rem;
+        }
+
+        .section-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .section-line {
+          display: none;
+        }
+
+        .projects-grid,
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Hidden class for search filtering */
+      .hidden {
+        display: none !important;
       }
     </style>
   </head>
 
   <body>
-    <header role="banner">
-      <!-- Replace image URL with your real logo -->
-      <img src="https://scontent.fpnh11-1.fna.fbcdn.net/v/t39.30808-6/644741199_2026035134626424_3317436637505195557_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeEvyROGr8iCyeRgARAduxo0nwJBm_kxMbSfAkGb-TExtOmwtC1UKWT1MS7WZEojqbkFmY2mxfgQgclJfo5ceI2Y&_nc_ohc=c15KC3yX5JsQ7kNvwG_ptnA&_nc_oc=AdpfW1w4vIXpLEZL6HoAx4hLwxO0B_ZWuamCUNWj3YAkBP9u8I1HectGGXQbplLIv0k&_nc_zt=23&_nc_ht=scontent.fpnh11-1.fna&_nc_gid=CWP2UYDBosBW9WvVoROZaQ&_nc_ss=7a32e&oh=00_AfwUjJmnd5FzsjWriLgx3MXwh22jfLDURrxL07eS5FDBEA&oe=69C6D792" alt="Krai Theara Profile Photo" class="profile-logo" />
+    <!-- Animated Background -->
+    <div class="bg-gradient"></div>
 
-      <h1>Krai Theara</h1>
-      <p>Student Web Developer | Building Technology to Help My Community</p>
+    <!-- Navigation -->
+    <nav role="navigation">
+      <div class="nav-container">
+        <a href="#" class="logo">KT</a>
+        
+        <!-- Search Bar -->
+        <div class="search-container">
+          <span class="search-icon">🔍</span>
+          <input 
+            type="text" 
+            class="search-box" 
+            placeholder="Search projects, skills, or content..."
+            id="searchInput"
+            aria-label="Search portfolio content"
+          />
+          <div class="search-results" id="searchResults"></div>
+        </div>
+
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header role="banner">
+      <div class="header-content">
+        <img 
+          src="https://scontent.fpnh11-1.fna.fbcdn.net/v/t39.30808-6/644741199_2026035134626424_3317436637505195557_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeEvyROGr8iCyeRgARAduxo0nwJBm_kxMbSfAkGb-TExtOmwtC1UKWT1MS7WZEojqbkFmY2mxfgQgclJfo5ceI2Y&_nc_ohc=c15KC3yX5JsQ7kNvwG_ptnA&_nc_oc=AdpfW1w4vIXpLEZL6HoAx4hLwxO0B_ZWuamCUNWj3YAkBP9u8I1HectGGXQbplLIv0k&_nc_zt=23&_nc_ht=scontent.fpnh11-1.fna&_nc_gid=CWP2UYDBosBW9WvVoROZaQ&_nc_ss=7a32e&oh=00_AfwUjJmnd5FzsjWriLgx3MXwh22jfLDURrxL07eS5FDBEA&oe=69C6D792" 
+          alt="Krai Theara Profile Photo" 
+          class="profile-logo" 
+        />
+        <h1 class="header-title">Krai Theara</h1>
+        <p class="header-subtitle">
+          Student Web Developer • Building Technology to Help My Community in Cambodia
+        </p>
+        <div class="cta-buttons">
+          <a href="#projects" class="btn btn-primary">View Projects →</a>
+          <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+        </div>
+      </div>
     </header>
 
+    <!-- Main Content -->
     <main class="container">
+      <!-- About Section -->
       <section class="section" id="about" aria-labelledby="about-heading">
-        <h2 id="about-heading">About Me</h2>
+        <div class="section-header">
+          <span class="section-number">01.</span>
+          <h2 id="about-heading" class="section-title">About Me</h2>
+          <div class="section-line"></div>
+        </div>
         <div class="card">
-          <p>
-            I am a passionate web development student focused on building
-            real-world solutions. My mission is to use technology to support and
-            improve my community.
+          <p style="font-size: 1.1rem; line-height: 1.8;">
+            I am a passionate web development student based in <strong>Phnom Penh, Cambodia</strong>, 
+            focused on building real-world solutions that make a difference. My mission is to use 
+            technology to support and improve my local community through innovative software projects.
+            <br><br>
+            As a <strong>self-driven learner</strong>, I'm constantly exploring new technologies and 
+            working on projects that solve real problems. From education management systems to 
+            hospitality solutions, I believe in creating meaningful software that serves people.
           </p>
         </div>
       </section>
 
+      <!-- Skills Section -->
       <section class="section" id="skills" aria-labelledby="skills-heading">
-        <h2 id="skills-heading">Skills</h2>
-        <div class="card">
-          <p>HTML • CSS • JavaScript • Python • Java • Spring Boot</p>
+        <div class="section-header">
+          <span class="section-number">02.</span>
+          <h2 id="skills-heading" class="section-title">Skills & Technologies</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-item" data-skill="java">
+            <div class="skill-icon">☕</div>
+            <div class="skill-name">Java</div>
+            <div class="skill-level">Backend</div>
+          </div>
+          <div class="skill-item" data-skill="spring boot">
+            <div class="skill-icon">🍃</div>
+            <div class="skill-name">Spring Boot</div>
+            <div class="skill-level">Framework</div>
+          </div>
+          <div class="skill-item" data-skill="python">
+            <div class="skill-icon">🐍</div>
+            <div class="skill-name">Python</div>
+            <div class="skill-level">Programming</div>
+          </div>
+          <div class="skill-item" data-skill="javascript">
+            <div class="skill-icon">⚡</div>
+            <div class="skill-name">JavaScript</div>
+            <div class="skill-level">Frontend</div>
+          </div>
+          <div class="skill-item" data-skill="html">
+            <div class="skill-icon">🌐</div>
+            <div class="skill-name">HTML</div>
+            <div class="skill-level">Markup</div>
+          </div>
+          <div class="skill-item" data-skill="css">
+            <div class="skill-icon">🎨</div>
+            <div class="skill-name">CSS</div>
+            <div class="skill-level">Styling</div>
+          </div>
+          <div class="skill-item" data-skill="database">
+            <div class="skill-icon">💾</div>
+            <div class="skill-name">Database</div>
+            <div class="skill-level">Data</div>
+          </div>
+          <div class="skill-item" data-skill="api">
+            <div class="skill-icon">🔌</div>
+            <div class="skill-name">API</div>
+            <div class="skill-level">Integration</div>
+          </div>
         </div>
       </section>
 
+      <!-- Projects Section -->
       <section class="section" id="projects" aria-labelledby="projects-heading">
-        <h2 id="projects-heading">Projects</h2>
-        <div class="projects">
-          <article class="project">
-            <h3>School Management System</h3>
-            <p>Java + Spring Boot system to manage students and teachers.</p>
+        <div class="section-header">
+          <span class="section-number">03.</span>
+          <h2 id="projects-heading" class="section-title">Featured Projects</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card" data-project="school management">
+            <div class="project-header">
+              <div class="project-icon">📚</div>
+              <div class="project-links">
+                <a href="https://github.com/kraitheara" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="View on GitHub">🔗</a>
+              </div>
+            </div>
+            <h3 class="project-title">School Management System</h3>
+            <p class="project-description">
+              A comprehensive Java and Spring Boot application designed to streamline school 
+              administration. Features include student enrollment, teacher management, attendance 
+              tracking, and grade reporting. Built to help local schools in Cambodia digitize 
+              their operations.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Java</span>
+              <span class="tag">Spring Boot</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">REST API</span>
+            </div>
           </article>
 
-          <article class="project">
-            <h3>Hotel Management App</h3>
-            <p>Python-based application for booking and records.</p>
+          <article class="project-card" data-project="hotel management">
+            <div class="project-header">
+              <div class="project-icon">🏨</div>
+              <div class="project-links">
+                <a href="https://github.com/kraitheara" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="View on GitHub">🔗</a>
+              </div>
+            </div>
+            <h3 class="project-title">Hotel Management App</h3>
+            <p class="project-description">
+              Python-based hospitality management solution for handling room bookings, guest 
+              check-ins, billing, and inventory. Designed to support small to medium hotels 
+              in managing their daily operations efficiently with an intuitive interface.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Django</span>
+              <span class="tag">SQLite</span>
+              <span class="tag">Bootstrap</span>
+            </div>
           </article>
 
-          <article class="project">
-            <h3>Community Platform</h3>
-            <p>A platform to connect and support local people.</p>
+          <article class="project-card" data-project="community platform">
+            <div class="project-header">
+              <div class="project-icon">🤝</div>
+              <div class="project-links">
+                <a href="https://github.com/kraitheara" class="project-link" target="_blank" rel="noopener noreferrer" aria-label="View on GitHub">🔗</a>
+              </div>
+            </div>
+            <h3 class="project-title">Community Platform</h3>
+            <p class="project-description">
+              A social platform designed to connect and support local communities in Cambodia. 
+              Features include community forums, event organization, resource sharing, and local 
+              business directories. Empowering people to collaborate and grow together.
+            </p>
+            <div class="project-tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">React</span>
+            </div>
           </article>
         </div>
       </section>
 
+      <!-- Contact Section -->
       <section class="section" id="contact" aria-labelledby="contact-heading">
-        <h2 id="contact-heading">Contact</h2>
-        <div class="card">
-          <p>Email: <a href="mailto:your@email.com"kraitheara@email.com</a></p>
-          <p>GitHub: <a href="https://github.com/kraitheara" target="_blank" rel="noopener noreferrer">github.com/kraitheara</a></p>
+        <div class="section-header">
+          <span class="section-number">04.</span>
+          <h2 id="contact-heading" class="section-title">Get In Touch</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="contact-grid">
+          <a href="mailto:kraitheara@email.com" class="contact-card">
+            <div class="contact-icon">📧</div>
+            <div class="contact-info">
+              <h3>Email</h3>
+              <p>kraitheara@email.com</p>
+            </div>
+          </a>
+          <a href="https://github.com/kraitheara" class="contact-card" target="_blank" rel="noopener noreferrer">
+            <div class="contact-icon">💻</div>
+            <div class="contact-info">
+              <h3>GitHub</h3>
+              <p>@kraitheara</p>
+            </div>
+          </a>
+          <div class="contact-card">
+            <div class="contact-icon">📍</div>
+            <div class="contact-info">
+              <h3>Location</h3>
+              <p>Phnom Penh, Cambodia</p>
+            </div>
+          </div>
         </div>
       </section>
     </main>
 
+    <!-- Footer -->
     <footer role="contentinfo">
-      <p>&copy; 2026 Krai Theara | Built with purpose</p>
+      <div class="footer-content">
+        <p class="footer-text">
+          Built with <span class="footer-heart">♥</span> by Krai Theara | 
+          Student Developer in Cambodia
+        </p>
+        <p class="footer-text" style="font-size: 0.9rem; opacity: 0.7;">
+          &copy; 2026 Krai Theara | Using Technology for Community Impact
+        </p>
+      </div>
     </footer>
 
-    <script>
-      // Scroll Animation
-      const sections = document.querySelectorAll(".section");
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</div>
 
-      window.addEventListener("scroll", () => {
-        sections.forEach((section) => {
-          const top = section.getBoundingClientRect().top;
-          if (top < window.innerHeight - 100) {
-            section.classList.add("active");
+    <script>
+      // Search Data
+      const searchData = [
+        // Projects
+        {
+          type: 'Project',
+          title: 'School Management System',
+          description: 'Java + Spring Boot system to manage students and teachers',
+          keywords: ['school', 'management', 'java', 'spring boot', 'education', 'students', 'teachers', 'administration'],
+          target: '#projects'
+        },
+        {
+          type: 'Project',
+          title: 'Hotel Management App',
+          description: 'Python-based application for booking and records',
+          keywords: ['hotel', 'management', 'python', 'booking', 'hospitality', 'django', 'reservation'],
+          target: '#projects'
+        },
+        {
+          type: 'Project',
+          title: 'Community Platform',
+          description: 'A platform to connect and support local people',
+          keywords: ['community', 'platform', 'social', 'javascript', 'react', 'node', 'forum', 'local'],
+          target: '#projects'
+        },
+        // Skills
+        {
+          type: 'Skill',
+          title: 'Java',
+          description: 'Backend programming language',
+          keywords: ['java', 'backend', 'programming', 'oop'],
+          target: '#skills'
+        },
+        {
+          type: 'Skill',
+          title: 'Spring Boot',
+          description: 'Java framework for building applications',
+          keywords: ['spring', 'boot', 'framework', 'java', 'backend', 'rest', 'api'],
+          target: '#skills'
+        },
+        {
+          type: 'Skill',
+          title: 'Python',
+          description: 'Programming language',
+          keywords: ['python', 'programming', 'scripting', 'django'],
+          target: '#skills'
+        },
+        {
+          type: 'Skill',
+          title: 'JavaScript',
+          description: 'Frontend programming language',
+          keywords: ['javascript', 'frontend', 'web', 'react', 'node'],
+          target: '#skills'
+        },
+        {
+          type: 'Skill',
+          title: 'HTML & CSS',
+          description: 'Web markup and styling',
+          keywords: ['html', 'css', 'web', 'frontend', 'styling', 'design'],
+          target: '#skills'
+        },
+        // About
+        {
+          type: 'About',
+          title: 'About Me',
+          description: 'Student web developer building real-world solutions in Cambodia',
+          keywords: ['about', 'student', 'developer', 'cambodia', 'phnom penh', 'web development', 'community'],
+          target: '#about'
+        },
+        // Contact
+        {
+          type: 'Contact',
+          title: 'Email',
+          description: 'kraitheara@email.com',
+          keywords: ['email', 'contact', 'reach', 'message'],
+          target: '#contact'
+        },
+        {
+          type: 'Contact',
+          title: 'GitHub',
+          description: '@kraitheara',
+          keywords: ['github', 'code', 'repository', 'projects', 'portfolio'],
+          target: '#contact'
+        }
+      ];
+
+      // Search Functionality
+      const searchInput = document.getElementById('searchInput');
+      const searchResults = document.getElementById('searchResults');
+
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        
+        if (query.length === 0) {
+          searchResults.classList.remove('active');
+          return;
+        }
+
+        const results = searchData.filter(item => {
+          return item.title.toLowerCase().includes(query) ||
+                 item.description.toLowerCase().includes(query) ||
+                 item.keywords.some(keyword => keyword.includes(query));
+        });
+
+        displaySearchResults(results, query);
+      });
+
+      function displaySearchResults(results, query) {
+        if (results.length === 0) {
+          searchResults.innerHTML = '<div class="no-results">No results found for "' + query + '"</div>';
+          searchResults.classList.add('active');
+          return;
+        }
+
+        const html = results.map(result => `
+          <div class="search-result-item" onclick="navigateTo('${result.target}')">
+            <div class="search-result-type">${result.type}</div>
+            <div class="search-result-title">${result.title}</div>
+            <div class="search-result-description">${result.description}</div>
+          </div>
+        `).join('');
+
+        searchResults.innerHTML = html;
+        searchResults.classList.add('active');
+      }
+
+      function navigateTo(target) {
+        searchResults.classList.remove('active');
+        searchInput.value = '';
+        document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
+      }
+
+      // Close search results when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.search-container')) {
+          searchResults.classList.remove('active');
+        }
+      });
+
+      // Scroll Animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.section').forEach(section => {
+        observer.observe(section);
+      });
+
+      // Scroll to Top Button
+      const scrollTopBtn = document.getElementById('scrollTop');
+
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 500) {
+          scrollTopBtn.classList.add('visible');
+        } else {
+          scrollTopBtn.classList.remove('visible');
+        }
+      });
+
+      scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // Smooth scroll for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
           }
         });
       });
