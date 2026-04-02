@@ -1,1 +1,11 @@
 
+[
+  {
+    "id": 1,
+    "title": "What I learned building my School Management System",
+    "date": "2026-04-01",
+    "summary": "A short intro...",
+    "content": "Full blog content here...",
+    "tags": ["Java", "Spring Boot"]
+  }
+]
