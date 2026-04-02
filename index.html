@@ -178,6 +178,7 @@
         padding:1rem 2rem; border-radius:50px; font-weight:600;
         text-decoration:none; transition:all 0.3s; display:inline-flex;
         align-items:center; gap:0.5rem; border:2px solid transparent; cursor:pointer;
+        font-family: inherit; font-size: 1rem;
       }
       .btn-primary { background:var(--accent); color:var(--bg); }
       .btn-primary:hover { background:var(--accent-light); transform:translateY(-2px); box-shadow:0 10px 30px rgba(245,158,11,0.3); }
@@ -241,7 +242,6 @@
         transform:translateY(-10px); box-shadow:0 25px 70px rgba(0,0,0,0.4);
       }
 
-      /* Click hint badge */
       .project-card .open-hint {
         position:absolute; top:1rem; right:1rem;
         font-size:0.75rem; color:var(--accent);
@@ -290,7 +290,6 @@
       }
       .modal-overlay.open .modal { transform:translateY(0) scale(1); }
 
-      /* top accent bar */
       .modal-accent-bar {
         height:5px; border-radius:28px 28px 0 0;
         background:linear-gradient(90deg,var(--accent),var(--primary-light));
@@ -351,7 +350,6 @@
 
       .modal-actions { display:flex; gap:1rem; flex-wrap:wrap; }
 
-      /* dots indicator */
       .modal-dots {
         display:flex; gap:0.5rem; justify-content:center;
         margin-top:2rem;
@@ -362,20 +360,191 @@
       }
       .modal-dot.active { background:var(--accent); width:24px; border-radius:4px; }
 
-      /* slide animation */
-      .modal-content-inner {
-        animation: modalSlideIn 0.3s ease;
+      .modal-content-inner { animation: modalSlideIn 0.3s ease; }
+      @keyframes modalSlideIn { from{opacity:0;transform:translateX(30px)} to{opacity:1;transform:translateX(0)} }
+      .modal-content-inner.slide-left { animation: modalSlideInLeft 0.3s ease; }
+      @keyframes modalSlideInLeft { from{opacity:0;transform:translateX(-30px)} to{opacity:1;transform:translateX(0)} }
+
+      /* ── BLOG ── */
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 2rem;
       }
-      @keyframes modalSlideIn {
-        from { opacity:0; transform:translateX(30px); }
-        to   { opacity:1; transform:translateX(0); }
+
+      .blog-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 2rem;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
       }
-      .modal-content-inner.slide-left {
-        animation: modalSlideInLeft 0.3s ease;
+      .blog-card::after {
+        content: "";
+        position: absolute;
+        bottom: 0; left: 0;
+        width: 100%; height: 3px;
+        background: linear-gradient(90deg, var(--accent), var(--primary-light));
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s;
       }
-      @keyframes modalSlideInLeft {
-        from { opacity:0; transform:translateX(-30px); }
-        to   { opacity:1; transform:translateX(0); }
+      .blog-card:hover::after { transform: scaleX(1); }
+      .blog-card:hover {
+        background: rgba(255,255,255,0.08);
+        border-color: var(--accent);
+        transform: translateY(-8px);
+        box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+      }
+
+      .blog-card-meta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-family: "Space Mono", monospace;
+        font-size: 0.78rem;
+        color: var(--text-muted);
+      }
+      .blog-card-date { color: var(--accent); }
+      .blog-card-dot { width:4px; height:4px; border-radius:50%; background: var(--border); }
+
+      .blog-card-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--text);
+        line-height: 1.4;
+        transition: color 0.2s;
+      }
+      .blog-card:hover .blog-card-title { color: var(--accent-light); }
+
+      .blog-card-summary {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.7;
+        flex: 1;
+      }
+
+      .blog-card-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: auto;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border);
+      }
+      .blog-card-tags { display:flex; gap:0.4rem; flex-wrap:wrap; }
+      .blog-card-read {
+        font-family: "Space Mono", monospace;
+        font-size: 0.75rem;
+        color: var(--accent);
+        white-space: nowrap;
+      }
+
+      /* Blog loading skeleton */
+      .blog-skeleton {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .skeleton-line {
+        height: 14px; border-radius: 6px;
+        background: linear-gradient(90deg, var(--border) 25%, rgba(255,255,255,0.07) 50%, var(--border) 75%);
+        background-size: 200% 100%;
+        animation: shimmer 1.5s infinite;
+      }
+      .skeleton-line.short { width: 40%; }
+      .skeleton-line.medium { width: 70%; }
+      .skeleton-line.full { width: 100%; }
+      .skeleton-line.title { height: 22px; width: 85%; }
+      @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+      /* Blog error state */
+      .blog-error {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 3rem;
+        color: var(--text-muted);
+      }
+      .blog-error-icon { font-size: 3rem; margin-bottom:1rem; }
+      .blog-error p { margin-bottom: 1.5rem; }
+
+      /* ── BLOG MODAL ── */
+      .blog-modal-overlay {
+        position: fixed; inset: 0; z-index: 3000;
+        background: rgba(0,0,0,0.9); backdrop-filter: blur(16px);
+        display: flex; align-items: center; justify-content: center;
+        padding: 1.5rem;
+        opacity: 0; pointer-events: none;
+        transition: opacity 0.35s ease;
+      }
+      .blog-modal-overlay.open { opacity: 1; pointer-events: all; }
+
+      .blog-modal {
+        background: #14121f;
+        border: 1px solid var(--border); border-radius: 28px;
+        max-width: 760px; width: 100%; max-height: 90vh;
+        overflow-y: auto; position: relative;
+        transform: translateY(40px) scale(0.97);
+        transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
+        box-shadow: 0 40px 120px rgba(0,0,0,0.7);
+      }
+      .blog-modal-overlay.open .blog-modal { transform: translateY(0) scale(1); }
+
+      .blog-modal-bar {
+        height: 5px; border-radius: 28px 28px 0 0;
+        background: linear-gradient(90deg, var(--accent), var(--primary-light));
+      }
+
+      .blog-modal-close {
+        position: absolute; top: 1.25rem; right: 1.25rem;
+        background: var(--card); border: 1px solid var(--border);
+        border-radius: 50%; width: 38px; height: 38px;
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer; color: var(--text-muted); font-size: 1.1rem;
+        transition: all 0.2s; z-index: 1;
+      }
+      .blog-modal-close:hover { border-color: var(--accent); color: var(--accent); }
+
+      .blog-modal-body { padding: 2.5rem; }
+
+      .blog-modal-meta {
+        display: flex; align-items: center; gap: 1rem;
+        font-family: "Space Mono", monospace; font-size: 0.8rem;
+        color: var(--text-muted); margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+      }
+      .blog-modal-date { color: var(--accent); }
+
+      .blog-modal-title {
+        font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 700;
+        margin-bottom: 1.5rem; line-height: 1.3;
+        background: linear-gradient(135deg, var(--text), var(--accent));
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      }
+
+      .blog-modal-tags { display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:2rem; }
+
+      .blog-modal-divider {
+        height: 1px; background: var(--border); margin-bottom: 2rem;
+      }
+
+      .blog-modal-content {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        line-height: 1.9;
+      }
+      .blog-modal-content p {
+        margin-bottom: 1.25rem;
       }
 
       /* ── CONTACT ── */
@@ -433,9 +602,9 @@
         .nav-links { gap:1rem; font-size:0.9rem; }
         .section-header { flex-direction:column; align-items:flex-start; }
         .section-line { display:none; }
-        .projects-grid, .contact-grid { grid-template-columns:1fr; }
-        .modal-body { padding:1.5rem; }
-        .modal-project-title { font-size:1.5rem; }
+        .projects-grid, .contact-grid, .blog-grid { grid-template-columns:1fr; }
+        .modal-body, .blog-modal-body { padding:1.5rem; }
+        .modal-project-title, .blog-modal-title { font-size:1.5rem; }
       }
     </style>
   </head>
@@ -456,6 +625,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#blog">Blog</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -469,6 +639,7 @@
         <p class="header-subtitle">Student Web Developer • Building Technology to Help My Community in Cambodia</p>
         <div class="cta-buttons">
           <a href="#projects" class="btn btn-primary">View Projects →</a>
+          <a href="#blog" class="btn btn-secondary">Read Blog ✍️</a>
           <a href="#contact" class="btn btn-secondary">Get in Touch</a>
         </div>
       </div>
@@ -523,71 +694,81 @@
 
           <article class="project-card" data-index="0" role="button" tabindex="0" aria-label="Open School Management System details">
             <span class="open-hint">click to open ↗</span>
-            <div class="project-header">
-              <div class="project-icon">📚</div>
-            </div>
+            <div class="project-header"><div class="project-icon">📚</div></div>
             <h3 class="project-title">School Management System</h3>
             <p class="project-description">A comprehensive Java and Spring Boot application designed to streamline school administration. Features include student enrollment, teacher management, attendance tracking, and grade reporting.</p>
             <div class="project-tags">
-              <span class="tag">Java</span>
-              <span class="tag">Spring Boot</span>
-              <span class="tag">MySQL</span>
-              <span class="tag">REST API</span>
+              <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">MySQL</span><span class="tag">REST API</span>
             </div>
           </article>
 
           <article class="project-card" data-index="1" role="button" tabindex="0" aria-label="Open Hotel Management App details">
             <span class="open-hint">click to open ↗</span>
-            <div class="project-header">
-              <div class="project-icon">🏨</div>
-            </div>
+            <div class="project-header"><div class="project-icon">🏨</div></div>
             <h3 class="project-title">Hotel Management App</h3>
             <p class="project-description">Python-based hospitality management solution for handling room bookings, guest check-ins, billing, and inventory. Designed to support small to medium hotels efficiently.</p>
             <div class="project-tags">
-              <span class="tag">Python</span>
-              <span class="tag">Django</span>
-              <span class="tag">SQLite</span>
-              <span class="tag">Bootstrap</span>
+              <span class="tag">Python</span><span class="tag">Django</span><span class="tag">SQLite</span><span class="tag">Bootstrap</span>
             </div>
           </article>
 
           <article class="project-card" data-index="2" role="button" tabindex="0" aria-label="Open Community Platform details">
             <span class="open-hint">click to open ↗</span>
-            <div class="project-header">
-              <div class="project-icon">🤝</div>
-            </div>
+            <div class="project-header"><div class="project-icon">🤝</div></div>
             <h3 class="project-title">Community Platform</h3>
             <p class="project-description">A social platform designed to connect and support local communities in Cambodia. Features include community forums, event organization, resource sharing, and local business directories.</p>
             <div class="project-tags">
-              <span class="tag">JavaScript</span>
-              <span class="tag">Node.js</span>
-              <span class="tag">MongoDB</span>
-              <span class="tag">React</span>
+              <span class="tag">JavaScript</span><span class="tag">Node.js</span><span class="tag">MongoDB</span><span class="tag">React</span>
             </div>
           </article>
 
           <article class="project-card" data-index="3" role="button" tabindex="0" aria-label="Open Expense Financial Tracker details">
             <span class="open-hint">click to open ↗</span>
-            <div class="project-header">
-              <div class="project-icon">💰</div>
-            </div>
+            <div class="project-header"><div class="project-icon">💰</div></div>
             <h3 class="project-title">Expense Financial Tracker</h3>
             <p class="project-description">A personal finance web app to track income, expenses, and savings goals. Clean dashboard with real-time summaries and category breakdowns to help users manage money wisely.</p>
             <div class="project-tags">
-              <span class="tag">JavaScript</span>
-              <span class="tag">HTML</span>
-              <span class="tag">CSS</span>
-              <span class="tag">Netlify</span>
+              <span class="tag">JavaScript</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Netlify</span>
             </div>
           </article>
 
         </div>
       </section>
 
+      <!-- ── BLOG ── -->
+      <section class="section" id="blog" aria-labelledby="blog-heading">
+        <div class="section-header">
+          <span class="section-number">04.</span>
+          <h2 id="blog-heading" class="section-title">Blog</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="blog-grid" id="blogGrid">
+          <!-- skeletons while loading -->
+          <div class="blog-skeleton">
+            <div class="skeleton-line short"></div>
+            <div class="skeleton-line title"></div>
+            <div class="skeleton-line full"></div>
+            <div class="skeleton-line medium"></div>
+          </div>
+          <div class="blog-skeleton">
+            <div class="skeleton-line short"></div>
+            <div class="skeleton-line title"></div>
+            <div class="skeleton-line full"></div>
+            <div class="skeleton-line medium"></div>
+          </div>
+          <div class="blog-skeleton">
+            <div class="skeleton-line short"></div>
+            <div class="skeleton-line title"></div>
+            <div class="skeleton-line full"></div>
+            <div class="skeleton-line medium"></div>
+          </div>
+        </div>
+      </section>
+
       <!-- Contact -->
       <section class="section" id="contact" aria-labelledby="contact-heading">
         <div class="section-header">
-          <span class="section-number">04.</span>
+          <span class="section-number">05.</span>
           <h2 id="contact-heading" class="section-title">Get In Touch</h2>
           <div class="section-line"></div>
         </div>
@@ -620,9 +801,7 @@
     <!-- SCROLL TOP -->
     <div class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</div>
 
-    <!-- ══════════════════════════════════════
-         PROJECT MODAL
-    ═══════════════════════════════════════ -->
+    <!-- PROJECT MODAL -->
     <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <div class="modal" id="modal">
         <div class="modal-accent-bar"></div>
@@ -639,185 +818,225 @@
       </div>
     </div>
 
+    <!-- BLOG MODAL -->
+    <div class="blog-modal-overlay" id="blogModalOverlay" role="dialog" aria-modal="true" aria-labelledby="blogModalTitle">
+      <div class="blog-modal">
+        <div class="blog-modal-bar"></div>
+        <button class="blog-modal-close" id="blogModalClose" aria-label="Close blog post">✕</button>
+        <div class="blog-modal-body" id="blogModalBody"></div>
+      </div>
+    </div>
+
     <script>
-      /* ─── PROJECT DATA ─────────────────────────────────── */
+      /* ─── PROJECT DATA ─────────────────────────────── */
       const projects = [
         {
-          icon: '📚',
-          title: 'School Management System',
-          description: 'A comprehensive Java and Spring Boot application designed to streamline school administration in Cambodia. The system digitizes manual processes, making it easier for schools to manage their day-to-day operations efficiently and accurately.',
-          features: [
-            'Student enrollment and profile management',
-            'Teacher administration and scheduling',
-            'Attendance tracking with daily reports',
-            'Grade reporting and transcript generation',
-            'Parent notification system',
-            'Dashboard with real-time analytics'
-          ],
-          tags: ['Java', 'Spring Boot', 'MySQL', 'REST API', 'Thymeleaf'],
-          github: 'https://github.com/kraitheara',
-          live: null
+          icon:'📚', title:'School Management System',
+          description:'A comprehensive Java and Spring Boot application designed to streamline school administration in Cambodia. The system digitizes manual processes, making it easier for schools to manage their day-to-day operations efficiently and accurately.',
+          features:['Student enrollment and profile management','Teacher administration and scheduling','Attendance tracking with daily reports','Grade reporting and transcript generation','Parent notification system','Dashboard with real-time analytics'],
+          tags:['Java','Spring Boot','MySQL','REST API','Thymeleaf'],
+          github:'https://github.com/kraitheara', live:null
         },
         {
-          icon: '🏨',
-          title: 'Hotel Management App',
-          description: 'A Python-based hospitality management solution built to help small and medium hotels in Cambodia manage their daily operations. From bookings to billing, everything is streamlined in one intuitive interface.',
-          features: [
-            'Room booking and reservation system',
-            'Guest check-in / check-out workflow',
-            'Billing and invoice generation',
-            'Room inventory and housekeeping status',
-            'Staff management module',
-            'Reporting and occupancy analytics'
-          ],
-          tags: ['Python', 'Django', 'SQLite', 'Bootstrap', 'HTML/CSS'],
-          github: 'https://github.com/kraitheara',
-          live: null
+          icon:'🏨', title:'Hotel Management App',
+          description:'A Python-based hospitality management solution built to help small and medium hotels in Cambodia manage their daily operations. From bookings to billing, everything is streamlined in one intuitive interface.',
+          features:['Room booking and reservation system','Guest check-in / check-out workflow','Billing and invoice generation','Room inventory and housekeeping status','Staff management module','Reporting and occupancy analytics'],
+          tags:['Python','Django','SQLite','Bootstrap','HTML/CSS'],
+          github:'https://github.com/kraitheara', live:null
         },
         {
-          icon: '🤝',
-          title: 'Community Platform',
-          description: 'A social platform designed to connect and empower local communities across Cambodia. It bridges the gap between residents, local businesses, and community organizers — making collaboration and resource sharing simple.',
-          features: [
-            'Community forums and discussion boards',
-            'Local event creation and RSVP',
-            'Resource and skill sharing marketplace',
-            'Local business directory',
-            'User profiles and reputation system',
-            'Real-time notifications'
-          ],
-          tags: ['JavaScript', 'Node.js', 'MongoDB', 'React', 'Express'],
-          github: 'https://github.com/kraitheara',
-          live: null
+          icon:'🤝', title:'Community Platform',
+          description:'A social platform designed to connect and empower local communities across Cambodia. It bridges the gap between residents, local businesses, and community organizers — making collaboration and resource sharing simple.',
+          features:['Community forums and discussion boards','Local event creation and RSVP','Resource and skill sharing marketplace','Local business directory','User profiles and reputation system','Real-time notifications'],
+          tags:['JavaScript','Node.js','MongoDB','React','Express'],
+          github:'https://github.com/kraitheara', live:null
         },
         {
-          icon: '💰',
-          title: 'Expense Financial Tracker',
-          description: 'A personal finance web application that helps users take control of their money. Track income and expenses, set savings goals, and visualize spending patterns with a clean, easy-to-use dashboard.',
-          features: [
-            'Income and expense logging',
-            'Category-based expense breakdown',
-            'Monthly and weekly summaries',
-            'Savings goal tracking',
-            'Interactive charts and graphs',
-            'Responsive design for mobile use'
-          ],
-          tags: ['JavaScript', 'HTML', 'CSS', 'Chart.js', 'Netlify'],
-          github: 'https://github.com/kraitheara',
-          live: 'https://expend-finacial.netlify.app/'
+          icon:'💰', title:'Expense Financial Tracker',
+          description:'A personal finance web application that helps users take control of their money. Track income and expenses, set savings goals, and visualize spending patterns with a clean, easy-to-use dashboard.',
+          features:['Income and expense logging','Category-based expense breakdown','Monthly and weekly summaries','Savings goal tracking','Interactive charts and graphs','Responsive design for mobile use'],
+          tags:['JavaScript','HTML','CSS','Chart.js','Netlify'],
+          github:'https://github.com/kraitheara', live:'https://expend-finacial.netlify.app/'
         }
       ];
 
-      /* ─── MODAL STATE ─────────────────────────────────── */
-      let currentIndex = 0;
-      let slideDirection = 'right';
-
-      const overlay   = document.getElementById('modalOverlay');
+      /* ─── PROJECT MODAL ─────────────────────────────── */
+      let currentIndex = 0, slideDirection = 'right';
+      const overlay      = document.getElementById('modalOverlay');
       const modalContent = document.getElementById('modalContent');
       const modalCounter = document.getElementById('modalCounter');
       const modalDots    = document.getElementById('modalDots');
-      const prevBtn   = document.getElementById('prevBtn');
-      const nextBtn   = document.getElementById('nextBtn');
+      const prevBtn      = document.getElementById('prevBtn');
+      const nextBtn      = document.getElementById('nextBtn');
 
       function buildDots() {
-        modalDots.innerHTML = projects.map((_, i) =>
-          `<div class="modal-dot ${i === currentIndex ? 'active' : ''}" data-i="${i}"></div>`
-        ).join('');
+        modalDots.innerHTML = projects.map((_,i) =>
+          `<div class="modal-dot ${i===currentIndex?'active':''}" data-i="${i}"></div>`).join('');
         modalDots.querySelectorAll('.modal-dot').forEach(dot => {
           dot.addEventListener('click', () => {
             slideDirection = +dot.dataset.i > currentIndex ? 'right' : 'left';
-            currentIndex = +dot.dataset.i;
-            renderModal();
+            currentIndex = +dot.dataset.i; renderModal();
           });
         });
       }
-
       function renderModal() {
         const p = projects[currentIndex];
-        modalCounter.textContent = `${currentIndex + 1} / ${projects.length}`;
+        modalCounter.textContent = `${currentIndex+1} / ${projects.length}`;
         prevBtn.disabled = currentIndex === 0;
         nextBtn.disabled = currentIndex === projects.length - 1;
-
-        const liveBtn = p.live
-          ? `<a href="${p.live}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Live Demo ↗</a>`
-          : '';
-
+        const liveBtn = p.live ? `<a href="${p.live}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Live Demo ↗</a>` : '';
         modalContent.innerHTML = `
-          <div class="modal-content-inner ${slideDirection === 'left' ? 'slide-left' : ''}">
+          <div class="modal-content-inner ${slideDirection==='left'?'slide-left':''}">
             <div class="modal-project-icon">${p.icon}</div>
             <h2 class="modal-project-title" id="modalTitle">${p.title}</h2>
             <p class="modal-project-description">${p.description}</p>
-
             <p class="modal-section-label">Tech Stack</p>
-            <div class="modal-tags">
-              ${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}
-            </div>
-
+            <div class="modal-tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
             <p class="modal-section-label">Key Features</p>
-            <ul class="modal-features">
-              ${p.features.map(f => `<li>${f}</li>`).join('')}
-            </ul>
-
+            <ul class="modal-features">${p.features.map(f=>`<li>${f}</li>`).join('')}</ul>
             <div class="modal-actions">
               <a href="${p.github}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub →</a>
               ${liveBtn}
             </div>
-          </div>
-        `;
-
+          </div>`;
         buildDots();
       }
-
       function openModal(index) {
-        currentIndex = index;
-        slideDirection = 'right';
-        renderModal();
-        overlay.classList.add('open');
+        currentIndex = index; slideDirection = 'right';
+        renderModal(); overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeModal() { overlay.classList.remove('open'); document.body.style.overflow=''; }
+
+      document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('click', () => openModal(+card.dataset.index));
+        card.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' ') openModal(+card.dataset.index); });
+      });
+      document.getElementById('modalClose').addEventListener('click', closeModal);
+      overlay.addEventListener('click', e => { if(e.target===overlay) closeModal(); });
+      prevBtn.addEventListener('click', () => { if(currentIndex>0){slideDirection='left';currentIndex--;renderModal();} });
+      nextBtn.addEventListener('click', () => { if(currentIndex<projects.length-1){slideDirection='right';currentIndex++;renderModal();} });
+      document.addEventListener('keydown', e => {
+        if(!overlay.classList.contains('open')) return;
+        if(e.key==='Escape') closeModal();
+        if(e.key==='ArrowRight'&&currentIndex<projects.length-1){slideDirection='right';currentIndex++;renderModal();}
+        if(e.key==='ArrowLeft'&&currentIndex>0){slideDirection='left';currentIndex--;renderModal();}
+      });
+
+      /* ─── BLOG SYSTEM ───────────────────────────────── */
+      let allBlogs = [];
+
+      function formatDate(dateStr) {
+        const d = new Date(dateStr);
+        return d.toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+      }
+
+      function renderBlogCards(blogs) {
+        const grid = document.getElementById('blogGrid');
+        if (!blogs.length) {
+          grid.innerHTML = `<div class="blog-error">
+            <div class="blog-error-icon">📭</div>
+            <p>No blog posts yet. Check back soon!</p>
+          </div>`;
+          return;
+        }
+        grid.innerHTML = blogs.map((post, i) => `
+          <article class="blog-card" data-blog-id="${post.id}" role="button" tabindex="0" style="animation-delay:${i*0.1}s">
+            <div class="blog-card-meta">
+              <span class="blog-card-date">${formatDate(post.date)}</span>
+              <div class="blog-card-dot"></div>
+              <span>${post.readTime}</span>
+            </div>
+            <h3 class="blog-card-title">${post.title}</h3>
+            <p class="blog-card-summary">${post.summary}</p>
+            <div class="blog-card-footer">
+              <div class="blog-card-tags">
+                ${post.tags.map(t=>`<span class="tag">${t}</span>`).join('')}
+              </div>
+              <span class="blog-card-read">Read →</span>
+            </div>
+          </article>
+        `).join('');
+
+        grid.querySelectorAll('.blog-card').forEach(card => {
+          card.addEventListener('click', () => openBlogPost(+card.dataset.blogId));
+          card.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' ') openBlogPost(+card.dataset.blogId); });
+        });
+      }
+
+      function openBlogPost(id) {
+        const post = allBlogs.find(p => p.id === id);
+        if (!post) return;
+        const paragraphs = post.content.split('\n\n').filter(Boolean);
+        const bodyEl = document.getElementById('blogModalBody');
+        bodyEl.innerHTML = `
+          <div class="blog-modal-meta">
+            <span class="blog-modal-date">${formatDate(post.date)}</span>
+            <div class="blog-card-dot"></div>
+            <span>${post.readTime}</span>
+          </div>
+          <h2 class="blog-modal-title" id="blogModalTitle">${post.title}</h2>
+          <div class="blog-modal-tags">
+            ${post.tags.map(t=>`<span class="tag">${t}</span>`).join('')}
+          </div>
+          <div class="blog-modal-divider"></div>
+          <div class="blog-modal-content">
+            ${paragraphs.map(p=>`<p>${p}</p>`).join('')}
+          </div>
+        `;
+        document.getElementById('blogModalOverlay').classList.add('open');
         document.body.style.overflow = 'hidden';
       }
 
-      function closeModal() {
-        overlay.classList.remove('open');
+      function closeBlogModal() {
+        document.getElementById('blogModalOverlay').classList.remove('open');
         document.body.style.overflow = '';
       }
 
-      /* ─── EVENTS ──────────────────────────────────────── */
-      document.querySelectorAll('.project-card').forEach(card => {
-        card.addEventListener('click', () => openModal(+card.dataset.index));
-        card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openModal(+card.dataset.index); });
+      document.getElementById('blogModalClose').addEventListener('click', closeBlogModal);
+      document.getElementById('blogModalOverlay').addEventListener('click', e => {
+        if (e.target === document.getElementById('blogModalOverlay')) closeBlogModal();
       });
-
-      document.getElementById('modalClose').addEventListener('click', closeModal);
-      overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
-
-      prevBtn.addEventListener('click', () => {
-        if (currentIndex > 0) { slideDirection = 'left'; currentIndex--; renderModal(); }
-      });
-      nextBtn.addEventListener('click', () => {
-        if (currentIndex < projects.length - 1) { slideDirection = 'right'; currentIndex++; renderModal(); }
-      });
-
-      // keyboard arrow navigation
       document.addEventListener('keydown', e => {
-        if (!overlay.classList.contains('open')) return;
-        if (e.key === 'Escape') closeModal();
-        if (e.key === 'ArrowRight' && currentIndex < projects.length - 1) { slideDirection = 'right'; currentIndex++; renderModal(); }
-        if (e.key === 'ArrowLeft'  && currentIndex > 0)                   { slideDirection = 'left';  currentIndex--; renderModal(); }
+        if (e.key === 'Escape' && document.getElementById('blogModalOverlay').classList.contains('open')) closeBlogModal();
       });
 
-      /* ─── SEARCH ──────────────────────────────────────── */
-      const searchData = [
-        { type:'Project', title:'School Management System', description:'Java + Spring Boot system', keywords:['school','management','java','spring boot','education'], target:'#projects', projectIndex: 0 },
-        { type:'Project', title:'Hotel Management App',     description:'Python-based booking app',  keywords:['hotel','python','booking','django'],                  target:'#projects', projectIndex: 1 },
-        { type:'Project', title:'Community Platform',       description:'Connect local communities', keywords:['community','social','react','node'],                  target:'#projects', projectIndex: 2 },
-        { type:'Project', title:'Expense Financial Tracker',description:'Track income and expenses', keywords:['finance','expense','tracker','money','budget'],       target:'#projects', projectIndex: 3 },
-        { type:'Skill', title:'Java',        description:'Backend programming',     keywords:['java','backend','oop'],           target:'#skills' },
-        { type:'Skill', title:'Spring Boot', description:'Java web framework',      keywords:['spring','boot','framework','api'], target:'#skills' },
-        { type:'Skill', title:'Python',      description:'Programming language',    keywords:['python','django'],                target:'#skills' },
-        { type:'Skill', title:'JavaScript',  description:'Frontend language',       keywords:['javascript','js','react','node'], target:'#skills' },
-        { type:'About', title:'About Me',    description:'Student developer in Cambodia', keywords:['about','cambodia','student','developer'], target:'#about' },
-        { type:'Contact', title:'Email',     description:'kraitheara@email.com',    keywords:['email','contact'],               target:'#contact' },
-        { type:'Contact', title:'GitHub',    description:'@kraitheara',             keywords:['github','code','repository'],     target:'#contact' }
+      /* ── Load blogs.json ── */
+      async function loadBlogs() {
+        try {
+          const res = await fetch('/blogs.json');
+          if (!res.ok) throw new Error('Failed to fetch');
+          allBlogs = await res.json();
+          // sort newest first
+          allBlogs.sort((a,b) => new Date(b.date) - new Date(a.date));
+          renderBlogCards(allBlogs);
+        } catch (err) {
+          // Fallback: show helpful error with instructions
+          document.getElementById('blogGrid').innerHTML = `
+            <div class="blog-error" style="grid-column:1/-1">
+              <div class="blog-error-icon">📝</div>
+              <p>Blog posts will appear here once <strong>blogs.json</strong> is added to your repo.</p>
+              <p style="font-size:0.85rem;margin-top:0.5rem;">Add the <code style="background:var(--card);padding:0.2rem 0.5rem;border-radius:6px;">blogs.json</code> file to your project root and push to GitHub.</p>
+            </div>`;
+        }
+      }
+
+      loadBlogs();
+
+      /* ─── SEARCH ────────────────────────────────────── */
+      const baseSearchData = [
+        { type:'Project', title:'School Management System', description:'Java + Spring Boot system', keywords:['school','management','java','spring boot','education'], target:'#projects', projectIndex:0 },
+        { type:'Project', title:'Hotel Management App',     description:'Python-based booking app',  keywords:['hotel','python','booking','django'],                  target:'#projects', projectIndex:1 },
+        { type:'Project', title:'Community Platform',       description:'Connect local communities', keywords:['community','social','react','node'],                  target:'#projects', projectIndex:2 },
+        { type:'Project', title:'Expense Financial Tracker',description:'Track income and expenses', keywords:['finance','expense','tracker','money','budget'],       target:'#projects', projectIndex:3 },
+        { type:'Skill',   title:'Java',        description:'Backend programming',     keywords:['java','backend','oop'],           target:'#skills' },
+        { type:'Skill',   title:'Spring Boot', description:'Java web framework',      keywords:['spring','boot','framework','api'], target:'#skills' },
+        { type:'Skill',   title:'Python',      description:'Programming language',    keywords:['python','django'],                target:'#skills' },
+        { type:'Skill',   title:'JavaScript',  description:'Frontend language',       keywords:['javascript','js','react','node'], target:'#skills' },
+        { type:'About',   title:'About Me',    description:'Student developer in Cambodia', keywords:['about','cambodia','student','developer'], target:'#about' },
+        { type:'Contact', title:'Email',       description:'kraitheara@email.com',    keywords:['email','contact'],               target:'#contact' },
+        { type:'Contact', title:'GitHub',      description:'@kraitheara',             keywords:['github','code','repository'],     target:'#contact' },
+        { type:'Blog',    title:'Blog',        description:'My learning journey',     keywords:['blog','post','writing','article','learn'], target:'#blog' }
       ];
 
       const searchInput   = document.getElementById('searchInput');
@@ -826,6 +1045,16 @@
       searchInput.addEventListener('input', e => {
         const q = e.target.value.toLowerCase().trim();
         if (!q) { searchResults.classList.remove('active'); return; }
+
+        // also search live blog posts
+        const blogSearchItems = allBlogs.map(post => ({
+          type:'Blog', title: post.title,
+          description: post.summary,
+          keywords: [...post.tags.map(t=>t.toLowerCase()), 'blog', 'post'],
+          target:'#blog', blogId: post.id
+        }));
+        const searchData = [...baseSearchData, ...blogSearchItems];
+
         const results = searchData.filter(item =>
           item.title.toLowerCase().includes(q) ||
           item.description.toLowerCase().includes(q) ||
@@ -835,49 +1064,48 @@
           searchResults.innerHTML = `<div class="no-results">No results for "${q}"</div>`;
         } else {
           searchResults.innerHTML = results.map(r => `
-            <div class="search-result-item" data-target="${r.target}" data-pi="${r.projectIndex ?? ''}">
+            <div class="search-result-item" data-target="${r.target}" data-pi="${r.projectIndex ?? ''}" data-blog-id="${r.blogId ?? ''}">
               <div class="search-result-type">${r.type}</div>
               <div class="search-result-title">${r.title}</div>
               <div class="search-result-description">${r.description}</div>
-            </div>
-          `).join('');
+            </div>`).join('');
           searchResults.querySelectorAll('.search-result-item').forEach(item => {
             item.addEventListener('click', () => {
               searchResults.classList.remove('active');
               searchInput.value = '';
-              const pi = item.dataset.pi;
               document.querySelector(item.dataset.target).scrollIntoView({ behavior:'smooth' });
+              const pi = item.dataset.pi;
+              const bi = item.dataset.blogId;
               if (pi !== '') setTimeout(() => openModal(+pi), 500);
+              if (bi !== '') setTimeout(() => openBlogPost(+bi), 500);
             });
           });
         }
         searchResults.classList.add('active');
       });
-
       document.addEventListener('click', e => {
         if (!e.target.closest('.search-container')) searchResults.classList.remove('active');
       });
 
-      /* ─── SCROLL ANIMATIONS ───────────────────────────── */
+      /* ─── SCROLL ANIMATIONS ─────────────────────────── */
       const observer = new IntersectionObserver(entries => {
-        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
       }, { threshold:0.1, rootMargin:'0px 0px -100px 0px' });
-
       document.querySelectorAll('.section').forEach(s => observer.observe(s));
 
-      /* ─── SCROLL TOP ──────────────────────────────────── */
+      /* ─── SCROLL TOP ────────────────────────────────── */
       const scrollTopBtn = document.getElementById('scrollTop');
       window.addEventListener('scroll', () => {
         scrollTopBtn.classList.toggle('visible', window.pageYOffset > 500);
       });
       scrollTopBtn.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
 
-      /* ─── SMOOTH NAV LINKS ────────────────────────────── */
+      /* ─── SMOOTH NAV ────────────────────────────────── */
       document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', e => {
           e.preventDefault();
           const t = document.querySelector(a.getAttribute('href'));
-          if (t) t.scrollIntoView({ behavior:'smooth' });
+          if(t) t.scrollIntoView({ behavior:'smooth' });
         });
       });
     </script>
